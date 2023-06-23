@@ -1,60 +1,71 @@
 const inquirer = require('inquirer');
-const {Circle,Triangle,Square} = require('./lib/shape')
-const fs = require('fs')
-const questions= [
+const {Circle,Triangle,Square} = require('./lib/shapes')
+const fs = require('fs');
+
+const questions = [
     {
         type:'input',
         name:'text',
-        message:'Enter text'
+        message:'Enter your logo name'
 
     },
     {
         type:'input',
-        name:'Color_text',
+        name:'color_text',
         message:'Enter color of the text'
     },
     {
         type:'list',
-        name:'Shape',
-        message:'Select shape',
+        name:'shape',
+        message:'Select a shape',
         choices:['circle','square','triangle']
 
     },
     {
         type:'input',
-        name:'Shape_color',
-        message:'enter shape color',
+        name:'shape_color',
+        message:'enter your shape color',
     
     },
 
-]
+];
+
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, function (err) {
+      if (err) {
+          console.log("Something wrong happened!")
+      } else {
+          console.log("SVG file successfully generated!")
+      }
+  })
+}
+
 
 function askQuestion() {
+
     inquirer.prompt(questions)
-   .then(function (answers){
-    console.log(answers)
-    if (answers.Shape==='circle') {
-    const circle = new Circle(answers.Shape_color)
-    console.log(circle);
-    }
+    .thenthen((answers)=>{
+      console.log(answers)
     
-    if(answers.Shape==='square'){
-        const square = new Square(answers.Shape_color)
-    }
-    if (answers.Shape==='triangle') {
-        const triangle= new Triangle(answers.Shape_color)
-    }
-   } )
+     let shape;
+
+
+            if(answers.shape == "circle") {
+                shape = new Circle(answers.text, answers.color_text, answers.shape_color)
+            }
+
+            if(answers.shape == "triangle") {
+                shape = new Triangle(answers.text, answers.color_text, answers.shape_color)
+            }
+            if(answers.shape == "square") {
+                shape = new Square(answers.text, answers.color_text, answers.shape_color)
+            }
+
+   
+          writeToFile("logo.svg", shape.render());
+        });
 }
-function writeToFile(fileName,data) {
-    fs.writeFileSync(fileName,data)
-    
-}
-function renderSvg(){
-    return`<svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-    ${render()}
-    </svg>
-    `
-}
+
 askQuestion();
-// call the fu
+
+
