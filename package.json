@@ -1,26 +1,19 @@
 {
   "name": "svg-logo-maker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Command line tool to generate an svg logo and write it to file.",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/michellesambuu/Svg-logo-maker.git"
-  },
+  "private": true,
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/michellesambuu/Svg-logo-maker/issues"
-  },
-  "homepage": "https://github.com/michellesambuu/Svg-logo-maker#readme",
-  "devDependencies": {
-    "jest": "^29.5.0"
-  },
+  "license": "UNLICENSED",
   "dependencies": {
     "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^28.1.3"
   }
 }
