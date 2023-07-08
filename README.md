@@ -14,5 +14,7 @@ Command line tool to generate an svg logo and write it to file.
 ## References
 
 [
-](https://drive.google.com/file/d/1RYJRX5DMfM1U-pqC56L3WRXyjBqUjHA0/view)https://drive.google.com/file/d/1RYJRX5DMfM1U-pqC56L3WRXyjBqUjHA0/view
+
 https://github.com/michellesambuu/Svg-logo-maker
+
+https://drive.google.com/file/d/1G0g28P9HO2UAUynWmP3GFeKa5IbX4AgP/view
